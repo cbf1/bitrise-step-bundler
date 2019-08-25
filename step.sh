@@ -1,22 +1,20 @@
-#!/bin/bash
-set -ex
+#!/usr/bin/env zsh -ex
 
-echo "This is the value specified for the input 'example_step_input': ${example_step_input}"
+GEMFILE_LOCK="Gemfile.lock"
 
-#
-# --- Export Environment Variables for other Steps:
-# You can export Environment Variables for other Steps with
-#  envman, which is automatically installed by `bitrise setup`.
-# A very simple example:
-envman add --key EXAMPLE_STEP_OUTPUT --value 'the value you want to share'
-# Envman can handle piped inputs, which is useful if the text you want to
-# share is complex and you don't want to deal with proper bash escaping:
-#  cat file_with_complex_input | envman add --KEY EXAMPLE_STEP_OUTPUT
-# You can find more usage examples on envman's GitHub page
-#  at: https://github.com/bitrise-io/envman
+if [ -f "${GEMFILE_LOCK}" ]; then
 
-#
-# --- Exit codes:
-# The exit code of your Step is very important. If you return
-#  with a 0 exit code `bitrise` will register your Step as "successful".
-# Any non zero exit code will be registered as "failed" by `bitrise`.
+  extract_version() { tr -cd "[:digit:]\."; }
+
+  BUNDLER_VERSION=$(bundler --version | extract_version)
+  BUNDLED_WITH=$(tail -n 1 "${GEMFILE_LOCK}" | extract_version)
+
+  unset -f extract_version
+
+  if [ "${BUNDLED_WITH}" != "${BUNDLER_VERSION}" ]; then
+    gem install bundler -v "${BUNDLED_WITH}" --no-document --force
+  fi
+
+  bundle check || bundle install --jobs "${bundle_install_jobs}" --retry "${bundle_install_retry}"
+
+fi
