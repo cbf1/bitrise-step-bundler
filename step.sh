@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh -ex
+#!/usr/bin/env bash -ex
 
 GEMFILE_LOCK="Gemfile.lock"
 
