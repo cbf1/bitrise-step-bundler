@@ -7,11 +7,11 @@ source_code_url: https://github.com/chrisfuller/bitrise-step-bundler
 support_url: https://github.com/chrisfuller/bitrise-step-bundler/issues
 
 host_os_tags:
-  - osx
+- osx
 
 type_tags:
-  - utility
-  - dependency
+- utility
+- dependency
 
 is_requires_admin_user: false
 is_always_run: false
