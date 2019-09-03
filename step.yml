@@ -1,6 +1,6 @@
 title: Bundler
-summary: Bundler
-description: Bundler
+summary: Install Ruby Dependencies with Bundler
+description: Install Ruby Dependencies with Bundler
 
 website: https://github.com/chrisfuller/bitrise-step-bundler
 source_code_url: https://github.com/chrisfuller/bitrise-step-bundler
