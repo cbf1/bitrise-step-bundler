@@ -8,6 +8,7 @@ support_url: https://github.com/chrisfuller/bitrise-step-bundler/issues
 
 host_os_tags:
 - osx
+- ubuntu
 
 type_tags:
 - utility
