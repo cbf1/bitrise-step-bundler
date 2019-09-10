@@ -1,4 +1,6 @@
-#!/bin/bash -ex
+#!/bin/bash
+
+set -euxo pipefail
 
 GEMFILE_LOCK="Gemfile.lock"
 
