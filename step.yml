@@ -23,17 +23,17 @@ toolkit:
     entry_file: step.sh
 
 inputs:
-  - bundle_install_jobs: '4'
-    opts:
-      title: --jobs
-      description: |
-        The maximum number of parallel download and install jobs.
-      is_expand: true
-      is_required: true
-  - bundle_install_retry: '1'
-    opts:
-      title: --retry
-      description: |
-        The number of times to retry failed network or git requests.
-      is_expand: true
-      is_required: true
+- bundle_install_jobs: '4'
+  opts:
+    title: --jobs
+    description: |
+      The maximum number of parallel download and install jobs.
+    is_expand: true
+    is_required: true
+- bundle_install_retry: '1'
+  opts:
+    title: --retry
+    description: |
+      The number of times to retry failed network or git requests.
+    is_expand: true
+    is_required: true
