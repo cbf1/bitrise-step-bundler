@@ -24,15 +24,15 @@ toolkit:
 inputs:
 - bundle_install_jobs: '4'
   opts:
-    title: --jobs
+    title: The maximum number of parallel download and install jobs.
     description: |
-      The maximum number of parallel download and install jobs.
+      The value of the `--jobs` Bundler option.
     is_expand: true
     is_required: true
 - bundle_install_retry: '1'
   opts:
-    title: --retry
+    title: The number of times to retry failed network or git requests.
     description: |
-      The number of times to retry failed network or git requests.
+      The value of the `--retry` Bundler option.
     is_expand: true
     is_required: true
