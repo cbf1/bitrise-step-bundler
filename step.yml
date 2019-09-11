@@ -11,7 +11,6 @@ host_os_tags:
 - ubuntu
 
 type_tags:
-- utility
 - dependency
 
 is_requires_admin_user: false
